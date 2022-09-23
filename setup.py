@@ -17,7 +17,7 @@ setup(
     keywords='mqtt rpc',
     url='http://github.com/litnimax/python-mqttrpc',
     description='''A RPC interface over MQTT''',
-    install_requires=['tinyrpc', 'hbmqtt', 'aiohttp', 'asyncio'],
+    install_requires=['tinyrpc', 'hbmqtt', 'aiohttp', 'async-timeout<=3.0'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
