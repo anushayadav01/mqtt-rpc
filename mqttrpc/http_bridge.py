@@ -44,13 +44,14 @@ class HttpMqttBridge(object):
         logger.info('Bridging {} with UID {}'.format(HTTP_URL, CLIENT_UID))
         self.client = MQTTClient(client_id=CLIENT_UID)
         logger.info('Initialized')
+        print("*********************************************************")
         self.http_server = None
         # Install signal handlers
         for signame in ('SIGINT', 'SIGTERM'):
             self.loop.add_signal_handler(getattr(signal, signame),
                 lambda: asyncio.ensure_future(self.stop()))
         logger.info('Client {} initialized'.format(CLIENT_UID))
-
+    
 
     async def stop(self):
         logger.info('Stopping...')

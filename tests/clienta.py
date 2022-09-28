@@ -1,5 +1,6 @@
 import asyncio
 from mqttrpc import MQTTRPC
+import json
 
 #client A
 
@@ -7,6 +8,8 @@ class ClientA(MQTTRPC):
 
     async def run_hello_on_b(self, name):
         client_b = self.get_proxy_for('client_b')
+        print(client_b)
+        print(type(name))
         return await client_b.hello(name)
 
 
@@ -15,4 +18,4 @@ client_a = ClientA(client_uid='client_a')
 asyncio.ensure_future(client_a.process_messages())
 print(
     loop.run_until_complete(
-        client_a.run_hello_on_b('Max')))
+        client_a.run_hello_on_b("Max")))
